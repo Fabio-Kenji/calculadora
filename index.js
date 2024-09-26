@@ -1,11 +1,28 @@
 const display = document.getElementById("display")
 
 function appendToDisplay(input) {
-    display.value += input
+    if (input === "." && String(display.value).includes(".")) {
+
+    }
+    if (display.value === "0") {
+        if (input === ".") {            
+            display.value += input
+        } else {
+            display.value = input
+        }
+    } else {
+        if (input === ".") {
+            if (!(String(display.value).includes("."))) {
+                display.value += input
+            }
+        } else {
+            display.value += input
+        }
+    }
 }
 
 function clearDisplay() {
-    display.value = ""
+    display.value = "0"
 }
 
 function calculate() {
